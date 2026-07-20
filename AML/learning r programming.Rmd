@@ -1,0 +1,50 @@
+```{r}
+numbers <- c(10, 20, 30, 40, 50)
+print(numbers)
+
+print(numbers[1])
+print(numbers[2:4])
+
+numbers[3] <- 100
+print(numbers)
+
+numbers <- c(numbers, 60)
+print(numbers)
+
+print(length(numbers))
+print(sum(numbers))
+print(mean(numbers))
+print(max(numbers))
+print(min(numbers))
+
+print(sort(numbers))
+print(rev(numbers))
+
+a <- c(10, 20, 30)
+b <- c(1, 2, 3)
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+
+print(numbers > 30)
+print(numbers[numbers > 30])
+```
+```{r}
+mat <- matrix(c(1,2,3,4,5,6,7,8,9), nrow=3, ncol=3)
+
+print(mat)
+
+print(mat[1,2])
+
+print(mat[2,])
+
+print(mat[,3])
+
+print(mat + 10)
+
+print(mat * 2)
+
+```
+
