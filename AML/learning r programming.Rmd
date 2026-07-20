@@ -17,9 +17,6 @@ print(mean(numbers))
 print(max(numbers))
 print(min(numbers))
 
-print(sort(numbers))
-print(rev(numbers))
-
 a <- c(10, 20, 30)
 b <- c(1, 2, 3)
 
@@ -36,7 +33,7 @@ mat <- matrix(c(1,2,3,4,5,6,7,8,9), nrow=3, ncol=3)
 
 print(mat)
 
-print(mat[1,2])
+
 
 print(mat[2,])
 
@@ -46,5 +43,118 @@ print(mat + 10)
 
 print(mat * 2)
 
+```
+```{r}
+student <- list(
+  Name = "Sarath",
+  Age = 21,
+  Marks = 95
+)
+
+print(student)
+
+print(student$Name)
+
+student$Age <- 22
+print(student)
+```
+```{r}
+student <- data.frame(
+  Name = c("Arun", "Bala", "Kiran"),
+  Age = c(20, 21, 22),
+  Marks = c(85, 90, 95)
+)
+
+print(student)
+
+print(student$Name)
+
+print(student$Marks)
+print("student summary")
+summary(student)
+```
+```{r}
+arr <- array(1:8, dim = c(2,2,2))
+
+print(arr)
+
+print(arr[1,,])
+
+print(arr[,,2])
+```
+
+```{r}
+data <- read.csv("student.csv")
+
+print(data)
+
+head(data)
+
+tail(data)
+
+str(data)
+
+summary(data)
+```
+
+```{r}
+
+gender <- factor(c("Male", "Female", "Male", "Female", "Male"))
+
+print(gender)
+
+print(levels(gender))
+
+print(table(gender))
+```
+
+```{r}
+data <- read.csv("student.csv")
+
+print(data)
+
+head(data)
+
+tail(data)
+
+str(data)
+
+summary(data)
+
+dim(data)
+
+names(data)
+```
+```{r}
+gender <- c("Male", "Female", "Male", "Female", "Male")
+
+print(gender)
+
+table(gender)
+```
+
+```{r}
+data <- read.csv("student.csv")
+
+print(data$Marks)
+
+mean(data$Marks)
+
+median(data$Marks)
+
+max(data$Marks)
+
+min(data$Marks)
+
+sum(data$Marks)
+```
+```{r}
+data <- read.csv("student.csv")
+
+cor(data$Age, data$Marks)
+
+plot(data$Age, data$Marks)
+
+plot(data$Marks, data$Age)
 ```
 
