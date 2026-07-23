@@ -1,0 +1,11 @@
+body{
+    background:#f5f6fa;
+}
+
+.projects{
+    display:flex;
+    justify-content:space-around;
+    position:relative;
+    gap:10px;
+    padding:17px;
+}

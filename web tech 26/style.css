@@ -28,7 +28,7 @@ nav a:hover{
 }
 
 .content{
-    width:80%;
+    width:50%;
     margin:20px auto;
     background:white;
     padding:20px;
@@ -46,7 +46,9 @@ table,th,td{
 }
 
 .card{
-    border:1px solid gray;
+    
+    width: 75%;
+    border:4px solid gray;
     padding:15px;
     margin:15px 0;
     background:#f9f9f9;
@@ -70,4 +72,8 @@ footer{
     color:white;
     text-align:center;
     padding:10px;
+}
+.contact{
+
+    width:75%;
 }
