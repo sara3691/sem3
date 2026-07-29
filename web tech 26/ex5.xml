@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="ex5.css"?>
+
+<bookstore>
+
+    <title>Book Store</title>
+
+    <book>
+        <name>Java</name>
+        <author>James Gosling</author>
+        <price>₹499</price>
+    </book>
+
+    <book>
+        <name>Python</name>
+        <author>Guido van Rossum</author>
+        <price>₹599</price>
+    </book>
+
+    <book>
+        <name>HTML &amp; CSS</name>
+        <author>John Duckett</author>
+        <price>₹399</price>
+    </book>
+
+
+</bookstore>
