@@ -1,47 +1,53 @@
-bookstore{
+Programming_lang{
     display:block;
-    width:900px;
-    margin:30px auto;
-    background:#eef5ff;
-    padding:20px;
-    text-align:center;
     font-family:Arial;
+}
+
+main_title{
+    display:block;
+    text-align:center;
+    background:#29c5e8;
+    color:white;
+    padding:20px;
 }
 
 title{
     display:block;
-    font-size:32px;
-    color:#0066cc;
+    font-size:35px;
     font-weight:bold;
-    margin-bottom:20px;
 }
 
-book{
-    display:inline-block;
-    width:220px;
-    margin:10px;
-    padding:15px;
-    background:white;
-    border-radius:12px;
-    border:1px solid #ddd;
-    box-shadow:2px 2px 8px #bbb;
-    transition:.3s;
-}
-
-book:hover{
-    background:#dff6ff;
-    transform:scale(1.05);
+sub_title{
+    display:block;
+    margin-top:10px;
 }
 
 name{
     display:block;
     font-size:22px;
-    color:#008000;
     font-weight:bold;
+    text-align:center;
+    margin:10px 0;
 }
 
-author,price{
+p{
     display:block;
-    margin-top:8px;
-    color:#555;
+    text-align:center;
+    margin:10px 0;
+}
+
+sub{
+    display:block;
+    text-align:center;
+}
+
+topic1,
+topic2,
+topic3{
+    display:inline-block;
+    background:orange;
+    color:white;
+    padding:5px 10px;
+    margin:5px;
+    border-radius:10px;
 }

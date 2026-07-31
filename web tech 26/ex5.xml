@@ -1,27 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/css" href="ex5.css"?>
 
-<bookstore>
+<Programming_lang>
 
-    <title>Book Store</title>
+    <main_title>
+        <title>Welcome to LearnHub!</title>
+        <sub_title>Your gateway to mastering technology</sub_title>
+    </main_title>
 
-    <book>
-        <name>Java</name>
-        <author>James Gosling</author>
-        <price>₹499</price>
-    </book>
+    <main_section>
 
-    <book>
-        <name>Python</name>
-        <author>Guido van Rossum</author>
-        <price>₹599</price>
-    </book>
+        <language_section>
+            <name>Programming</name>
+            <p>Build Strong programming foundations</p>
 
-    <book>
-        <name>HTML &amp; CSS</name>
-        <author>John Duckett</author>
-        <price>₹399</price>
-    </book>
+            <sub>
+                <topic1>Python</topic1>
+                <topic2>JavaScript</topic2>
+                <topic3>Java</topic3>
+            </sub>
+        </language_section>
 
+        <language_section>
+            <name>Data Science</name>
+            <p>Analyze and interpret complex data.</p>
 
-</bookstore>
+            <sub>
+                <topic1>Machine Learning</topic1>
+                <topic2>Data Visualization</topic2>
+                <topic3>Deep Learning</topic3>
+            </sub>
+        </language_section>
+
+        <language_section>
+            <name>Web Development</name>
+            <p>Create modern and responsive websites.</p>
+
+            <sub>
+                <topic1>HTML</topic1>
+                <topic2>CSS</topic2>
+                <topic3>React</topic3>
+            </sub>
+        </language_section>
+
+    </main_section>
+
+</Programming_lang>
