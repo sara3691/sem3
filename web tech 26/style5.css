@@ -1,0 +1,27 @@
+students {
+    display: block;
+    margin: 20px;
+}
+
+student {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+name {
+    display: block;
+    color: blue;
+    font-size: 20px;
+}
+
+age {
+    display: block;
+    color: green;
+}
+
+course {
+    display: block;
+    color: red;
+}
