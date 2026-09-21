@@ -1,51 +1,41 @@
-import javax.swing.*;  
-import java.awt.*;  
-  
-public class MetricConversionApp extends JFrame { 
-     private JLabel cmLabel;      
-     private JTextField cmTextField;     
-     private JLabel inchLabel;     
-     private JTextField inchTextField;      
-     private JButton convertButton;  
-  
-     public MetricConversionApp() {          
-        setTitle("Metric Conversion");  
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);          
-        setSize(300, 150);          
-        setLayout(new FlowLayout());  
-  
-        cmLabel = new JLabel("Centimeters:");          
-        cmTextField = new JTextField(10);          
-         inchLabel = new JLabel("Inches:");         
-         inchTextField = new JTextField(10);          
-         convertButton = new JButton("Convert");  
-  
-        convertButton.addActionListener(e -> {             
-            try {  
-                double centimeters = Double.parseDouble(cmTextField.getText());  
-                double inches = centimeters / 2.54;  
-                inchTextField.setText(String.format("%.2f", inches));  
-            } catch (NumberFormatException ex) {  
- 
- 
- 
-                JOptionPane.showMessageDialog(null, "Invalid input. Please enter a valid number.");  
-            }  
-        });  
-  
-        add(cmLabel);         
-        add(cmTextField);         
-        add(inchLabel);          
-        add(inchTextField);          
-        add(convertButton);  
-    }  
-  
-    public static void main(String[] args) {  
-        SwingUtilities.invokeLater(() -> {  
-            MetricConversionApp app = new MetricConversionApp();                        
-            app.getRootPane().setDefaultButton(app.convertButton);              
-            app.setVisible(true);  
-        });  
-    }  
-}  
-  
+import javax.swing.*;
+
+public class MetricConversionApp {
+    public static void main(String[] args) {
+
+        JFrame f = new JFrame("Metric Conversion");
+
+        JLabel l1 = new JLabel("Centimeter:");
+        JTextField t1 = new JTextField();
+
+        JLabel l2 = new JLabel("Inches:");
+        JTextField t2 = new JTextField();
+
+        JButton b = new JButton("Convert");
+
+        l1.setBounds(30, 30, 100, 30);
+        t1.setBounds(120, 30, 100, 30);
+
+        l2.setBounds(30, 70, 100, 30);
+        t2.setBounds(120, 70, 100, 30);
+
+        b.setBounds(80, 110, 100, 30);
+
+        b.addActionListener(e -> {
+            double cm = Double.parseDouble(t1.getText());
+            double inch = cm / 2.54;
+            t2.setText(String.format("%.2f", inch));
+        });
+
+        f.add(l1);
+        f.add(t1);
+        f.add(l2);
+        f.add(t2);
+        f.add(b);
+
+        f.setSize(270, 200);
+        f.setLayout(null);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setVisible(true);
+    }
+}
