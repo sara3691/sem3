@@ -1,7 +1,6 @@
 import java.net.*;
 import java.io.*;
 import java.util.*;
-
 class Server {
     public static void main(String[] args) throws Exception {
 
@@ -23,7 +22,6 @@ class Server {
             if (msg.equals("stop"))
                 break;
         }
-
         s.close();
         ss.close();
     }
