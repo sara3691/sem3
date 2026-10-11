@@ -9,6 +9,7 @@ public class Server7 {
         LocateRegistry.createRegistry(1099);
 
         Naming.rebind("Hello", obj);
+        
 
         System.out.println("Server is running...");
     }

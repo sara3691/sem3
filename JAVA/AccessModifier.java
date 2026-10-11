@@ -1,5 +1,5 @@
 class Employee{
- public String name ="sarath";
+ public String name ="MCA student ";
  protected int id = 101;
  private double salary = 20000.0;
 
