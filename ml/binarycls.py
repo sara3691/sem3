@@ -1,7 +1,7 @@
 
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 
@@ -15,8 +15,10 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-# Create and train model
-model = LogisticRegression(max_iter=2000)
+# Create model
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+
+# Train model
 model.fit(X_train, y_train)
 
 # Predict output
@@ -31,8 +33,7 @@ print("Testing Accuracy:", test_acc)
 
 # Draw graph
 plt.bar(["Training", "Testing"], [train_acc, test_acc])
-plt.title("Binary Classification")
-plt.xlabel("Dataset")
+plt.title("Random Forest Binary Classification")
 plt.ylabel("Accuracy")
 plt.ylim(0, 1)
 plt.show()
