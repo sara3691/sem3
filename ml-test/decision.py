@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.metrics import accuracy_score
 
 data = load_iris()
@@ -14,10 +14,11 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 model = DecisionTreeClassifier(random_state=42)
 model.fit(X_train, y_train)
+
 y_pred = model.predict(X_test)
 
 print("Accuracy:", accuracy_score(y_test, y_pred))
 
-plt.bar(["Actual", "Predicted"],
-        [1, accuracy_score(y_test, y_pred)])
+
+plot_tree(model)
 plt.show()

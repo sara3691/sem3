@@ -13,17 +13,28 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-# Choose the model
-model = KNeighborsClassifier()
-# model = GaussianNB()
 
-model.fit(X_train, y_train)
-y_pred = model.predict(X_test)
+knn = KNeighborsClassifier()
+knn.fit(X_train, y_train)
+y_pred1 = knn.predict(X_test)
+acc1 = accuracy_score(y_test, y_pred1)
 
-acc = accuracy_score(y_test, y_pred)
-print("Accuracy:", acc)
+print("KNN Accuracy:", acc1)
 
-plt.bar(["Accuracy"], [acc])
+plt.bar(["KNN Accuracy"], [acc1])
 plt.ylim(0, 1)
-plt.title("Model Accuracy")
+plt.title("KNN Algorithm")
+plt.show()
+
+
+nb = GaussianNB()
+nb.fit(X_train, y_train)
+y_pred2 = nb.predict(X_test)
+acc2 = accuracy_score(y_test, y_pred2)
+
+print("Naive Bayes Accuracy:", acc2)
+
+plt.bar(["Naive Bayes Accuracy"], [acc2])
+plt.ylim(0, 1)
+plt.title("Naive Bayes Algorithm")
 plt.show()
