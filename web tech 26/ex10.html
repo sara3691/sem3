@@ -6,7 +6,7 @@
     <style>
         body { text-align: center; font-family: Arial; }
         .box { background: lightblue; padding: 40px;}
-        .msg { color: green; font-weight: bold; }
+        #msg { color: green; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -24,7 +24,7 @@
     <button>Submit</button>
 </form>
 
-<p class="msg"></p>
+<p id="msg"></p>
 
 <script>
     form.onsubmit = function(e) {
