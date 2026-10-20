@@ -1,27 +1,48 @@
 students {
-    display: block;
+   
     margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 student {
     display: block;
     margin: 10px;
     padding: 10px;
+    height: 100px;
+    width: 200px;
     border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    background-color: lightgray;
 }
 
 name {
     display: block;
     color: blue;
     font-size: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    background-color: lightyellow;
 }
 
 age {
     display: block;
     color: green;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    background-color: lightpink;
 }
 
 course {
     display: block;
     color: red;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    background-color: lightcyan;
 }
