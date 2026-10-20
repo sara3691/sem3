@@ -14,21 +14,16 @@
         <age>22</age>
         <course>MCA</course>
     </student>
+
     <student>
-        <name>Ravi</name>
-        <age>22</age>
-        <course>MCA</course>
-    </student>
-    <student>
-        <name>Ravi</name>
-        <age>22</age>
-        <course>MCA</course>
-    </student>
-    <student>
-        <name>Ravi</name>
+        <name>lilly</name>
         <age>22</age>
         <course>MCA</course>
     </student>
 
-    
+    <student>
+        <name>priya</name>
+        <age>22</age>
+        <course>MCA</course>
+    </student>
 </students>

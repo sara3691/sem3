@@ -13,7 +13,6 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-
 knn = KNeighborsClassifier()
 knn.fit(X_train, y_train)
 y_pred1 = knn.predict(X_test)
@@ -25,7 +24,6 @@ plt.bar(["KNN Accuracy"], [acc1])
 plt.ylim(0, 1)
 plt.title("KNN Algorithm")
 plt.show()
-
 
 nb = GaussianNB()
 nb.fit(X_train, y_train)
