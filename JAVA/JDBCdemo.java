@@ -24,8 +24,7 @@ public class JDBCdemo {
                 System.out.println("ID: " + rs.getInt("eid"));
                 System.out.println("Name: " + rs.getString("ename"));
                 System.out.println("Age: " + rs.getInt("eage"));
-                System.out.println("Address: " + rs.getString("eaddress"));
-                System.out.println("Salary: " + rs.getFloat("esalary"));
+            
                 System.out.println();
             }
 
