@@ -1,64 +1,36 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Mouse and Form Events</title>
     <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            padding: 30px;
-        }
-        #box {
-            width: 250px;
-            height: 100px;
-            background: lightblue;
-            line-height: 100px;
-            margin: 20px auto;
-            cursor: pointer;
-        }
-        input, button {
-            padding: 10px;
-            margin: 5px;
-        }
-        #msg {
-            color: green;
-            font-weight: bold;
-        }
+        body { text-align: center; font-family: Arial; }
+        #box { background: lightblue; padding: 40px; margin: 20px; }
+        #msg { color: green; font-weight: bold; }
     </style>
 </head>
 <body>
-    <h2>Mouse & Form Events</h2>
-    <div id="box">Hover / Click Me</div>
-    <form id="form">
-        <input type="text"
-               id="name"
-               placeholder="Enter your name"
-               required>
-        <button type="submit">Submit</button>
-    </form>
-    <p id="msg"></p>
-    <script>
-        const box = document.getElementById("box");
-        // Mouse Over Event
-        box.onmouseover = function() {
-            box.style.background = "lightgreen";
-        };
-        // Mouse Out Event
-        box.onmouseout = function() {
-            box.style.background = "lightblue";
-        };
-        // Mouse Click Event
-        box.onclick = function() {
-            box.style.background = "orange";
-        };
-        // Form Submit Event
-        document.getElementById("form").onsubmit = function(event) {
-            event.preventDefault();
-            let name = document.getElementById("name").value;
-            document.getElementById("msg").textContent =
-                "Hello, " + name + "!";
-            event.target.reset();
-        };
-    </script>
+
+<h2>Mouse & Form Events</h2>
+
+<div id="box" onmouseover="this.style.background='lightgreen'"
+     onmouseout="this.style.background='lightblue'"
+     onclick="this.style.background='orange'" style="width: 20%;margin:auto;" >
+    Hover / Click Me
+</div>
+
+<form id="form">
+    <input id="name" placeholder="Enter your name" required>
+    <button>Submit</button>
+</form>
+
+<p id="msg"></p>
+
+<script>
+    form.onsubmit = function(e) {
+    e.preventDefault();
+    msg.innerHTML = "Hello, " + document.getElementById("name").value + "!";
+};
+</script>
 </body>
 </html>
