@@ -5,14 +5,12 @@ public class javasql {
     public static void main(String[] args) {
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
+            
             Connection c = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/emp",
                 "root",
                 ""
             );
-
             System.out.println("Database Connected Successfully!");
 
             Statement stmt = c.createStatement();
