@@ -1,68 +1,78 @@
 
 @echo off
 setlocal
-title JSP and Servlet - One Click Runner
+title Universal JSP and Servlet Runner
 
-echo ==========================================
-echo       JSP AND SERVLET RUNNER
-echo ==========================================
+echo ========================================
+echo     UNIVERSAL JSP + SERVLET RUNNER
+echo ========================================
+echo.
 
-REM 1. Find Java
+REM 1. Find JDK
+if defined JAVA_HOME if exist "%JAVA_HOME%\bin\javac.exe" goto java_found
+
 where javac >nul 2>&1
-if errorlevel 1 (
-    echo ERROR: Install JDK and add it to PATH.
-    pause
-    exit /b 1
+if not errorlevel 1 goto detect_java
+
+echo JDK not found in PATH.
+set /p "JAVA_HOME=Enter JDK folder path: "
+if exist "%JAVA_HOME%\bin\javac.exe" goto java_found
+
+echo ERROR: Invalid JDK folder.
+echo Example: C:\Program Files\Java\jdk-21
+pause
+exit /b 1
+
+:detect_java
+for /f "delims=" %%J in ('where javac') do (
+    set "JAVAC_PATH=%%J"
+    goto derive_java
 )
 
-REM Detect JAVA_HOME if missing
-if not defined JAVA_HOME (
-    for /f "delims=" %%J in ('where javac') do (
-        set "JAVAC_PATH=%%J"
-        goto findjava
-    )
-)
-goto java_ready
-
-:findjava
+:derive_java
 for %%I in ("%JAVAC_PATH%") do set "JAVA_BIN=%%~dpI"
 for %%I in ("%JAVA_BIN%..") do set "JAVA_HOME=%%~fI"
 
-:java_ready
-if not exist "%JAVA_HOME%\bin\javac.exe" (
-    echo ERROR: Cannot find JDK.
-    echo Set JAVA_HOME to your JDK folder.
-    pause
-    exit /b 1
-)
+if exist "%JAVA_HOME%\bin\javac.exe" goto java_found
+echo ERROR: Could not detect JDK.
+pause
+exit /b 1
 
-REM 2. Find Tomcat
-if defined CATALINA_HOME (
+:java_found
+echo JDK: %JAVA_HOME%
+
+REM 2. Detect Tomcat
+if defined CATALINA_HOME if exist "%CATALINA_HOME%\lib\servlet-api.jar" (
     set "TOMCAT=%CATALINA_HOME%"
-) else if defined TOMCAT_HOME (
+    goto tomcat_found
+)
+
+if defined TOMCAT_HOME if exist "%TOMCAT_HOME%\lib\servlet-api.jar" (
     set "TOMCAT=%TOMCAT_HOME%"
-) else (
-    set /p "TOMCAT=Enter Tomcat root folder path: "
+    goto tomcat_found
 )
 
-if not exist "%TOMCAT%\lib\servlet-api.jar" (
-    echo ERROR: Invalid Tomcat folder.
-    pause
-    exit /b 1
-)
+echo.
+set /p "TOMCAT=Enter Tomcat ROOT folder path: "
 
-REM 3. Project and deployment folders
-set "PROJECT=%~dp0ServletDemo"
+if exist "%TOMCAT%\lib\servlet-api.jar" goto tomcat_found
+
+echo ERROR: Tomcat folder is invalid.
+echo Choose the folder containing bin, lib and webapps.
+pause
+exit /b 1
+
+:tomcat_found
+echo Tomcat: %TOMCAT%
+
+REM 3. Project files stay beside this BAT file
+set "PROJECT=%~dp0"
 set "APP=%TOMCAT%\webapps\ServletDemo"
 set "CLASSES=%APP%\WEB-INF\classes"
 
-mkdir "%PROJECT%" 2>nul
-mkdir "%APP%\WEB-INF\classes" 2>nul
-
-REM 4. Automatically create Java Servlet file
+REM 4. Create Java source automatically
 (
 echo import java.io.*;
-echo import javax.servlet.*;
 echo import javax.servlet.http.*;
 echo import javax.servlet.annotation.WebServlet;
 echo.
@@ -70,13 +80,12 @@ echo @WebServlet^("/hello"^)
 echo public class HelloServlet extends HttpServlet {
 echo     public void doGet^(HttpServletRequest req, HttpServletResponse res^) throws IOException {
 echo         res.setContentType^("text/html"^);
-echo         PrintWriter out = res.getWriter^(^);
-echo         out.println^("<h2>Hello from Servlet!</h2>"^);
+echo         res.getWriter^(^).println^("<h2>Hello from Servlet!</h2>"^);
 echo     }
 echo }
-) > "%PROJECT%\HelloServlet.java"
+) > "%PROJECT%HelloServlet.java"
 
-REM 5. Automatically create JSP file
+REM 5. Create JSP automatically
 (
 echo ^<html^>
 echo ^<body^>
@@ -86,33 +95,43 @@ echo ^<button type="submit"^>Call Servlet^</button^>
 echo ^</form^>
 echo ^</body^>
 echo ^</html^>
-) > "%PROJECT%\index.jsp"
+) > "%PROJECT%index.jsp"
 
-REM 6. Copy JSP to Tomcat
-copy /Y "%PROJECT%\index.jsp" "%APP%\index.jsp" >nul
-
-REM 7. Compile Java Servlet
-echo.
-echo Compiling Servlet...
-"%JAVA_HOME%\bin\javac.exe" -cp "%TOMCAT%\lib\servlet-api.jar" -d "%CLASSES%" "%PROJECT%\HelloServlet.java"
-
-if errorlevel 1 (
-    echo Compilation failed. Check Tomcat version and Java setup.
+REM 6. Create deployment folders
+if not exist "%CLASSES%" mkdir "%CLASSES%"
+if not exist "%CLASSES%" (
+    echo ERROR: Cannot create deployment folder.
+    echo Check permissions.
     pause
     exit /b 1
 )
 
-REM 8. Start Tomcat
+REM 7. Compile servlet
+echo.
+echo Compiling servlet...
+
+"%JAVA_HOME%\bin\javac.exe" -cp "%TOMCAT%\lib\servlet-api.jar" -d "%CLASSES%" "%PROJECT%HelloServlet.java"
+
+if errorlevel 1 (
+    echo Compilation failed.
+    echo This example requires Tomcat 9 javax.servlet API.
+    pause
+    exit /b 1
+)
+
+REM 8. Copy JSP
+copy /Y "%PROJECT%index.jsp" "%APP%\index.jsp" >nul
+
+REM 9. Start Tomcat
 echo.
 echo Starting Tomcat...
 call "%TOMCAT%\bin\startup.bat"
 
 timeout /t 5 >nul
 
-REM 9. Open browser
+REM 10. Open browser
 start "" "http://localhost:8080/ServletDemo/index.jsp"
 
 echo.
-echo Project files created and deployed.
-echo ServletDemo folder: "%PROJECT%"
+echo Check the browser for your JSP page.
 pause
