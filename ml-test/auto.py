@@ -14,7 +14,6 @@ model = Sequential([
     Dense(784, activation='sigmoid'),
     Reshape((28, 28))
 ])
-
 model.compile(optimizer='adam', loss='binary_crossentropy')
 
 model.fit(X_train, X_train, epochs=3, batch_size=128)
@@ -27,7 +26,7 @@ for i in range(5):
     plt.subplot(2, 5, i+1)
     plt.imshow(X_test[i], cmap='gray')
     plt.axis('off')
-
+    
     plt.subplot(2, 5, i+6)
     plt.imshow(output[i], cmap='gray')
     plt.axis('off')

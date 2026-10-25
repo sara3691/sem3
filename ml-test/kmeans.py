@@ -5,7 +5,7 @@ from sklearn.cluster import KMeans
 data = load_iris()
 X = data.data
 
-model = KMeans(n_clusters=3, random_state=42, n_init=10)
+model = KMeans(n_clusters=3)
 model.fit(X)
 
 y_pred = model.labels_
