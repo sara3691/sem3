@@ -10,7 +10,7 @@ class Server {
         DataInputStream in = new DataInputStream(s.getInputStream());
         DataOutputStream out = new DataOutputStream(s.getOutputStream());
         Scanner sc = new Scanner(System.in);
-
+        
         while (true) {
             System.out.println("Client: " + in.readUTF());
 
