@@ -29,8 +29,7 @@ class Result extends Student implements exam{
     public void percent_cal(){
         int total =(mark1 + mark2);
         float percent=(total*100)/200;
-        System.err.println("percentage "+percent+"%");
-        }
+        System.out.println("percentage "+percent+"%");}
 void display(){
 super.display();  
 }
