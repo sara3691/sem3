@@ -1,3 +1,0 @@
-127.0.0.1 - - [26/Oct/2026:21:03:15 +0530] "GET /JSPServletDemo/ HTTP/1.1" 200 201
-0:0:0:0:0:0:0:1 - - [26/Oct/2026:21:03:16 +0530] "GET /JSPServletDemo/ HTTP/1.1" 200 201
-0:0:0:0:0:0:0:1 - - [26/Oct/2026:21:03:24 +0530] "POST /JSPServletDemo/hello HTTP/1.1" 200 45
