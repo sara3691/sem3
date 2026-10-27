@@ -1,0 +1,53 @@
+Programming_lang{
+    display:block;
+    font-family:Arial;
+}
+
+main_title{
+    display:block;
+    text-align:center;
+    background:#29c5e8;
+    color:white;
+    padding:20px;
+}
+
+title{
+    display:block;
+    font-size:35px;
+    font-weight:bold;
+}
+
+sub_title{
+    display:block;
+    margin-top:10px;
+}
+
+name{
+    display:block;
+    font-size:22px;
+    font-weight:bold;
+    text-align:center;
+    margin:10px 0;
+}
+
+p{
+    display:block;
+    text-align:center;
+    margin:10px 0;
+}
+
+sub{
+    display:block;
+    text-align:center;
+}
+
+topic1,
+topic2,
+topic3{
+    display:inline-block;
+    background:orange;
+    color:white;
+    padding:5px 10px;
+    margin:5px;
+    border-radius:10px;
+}

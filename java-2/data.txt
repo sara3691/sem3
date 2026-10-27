@@ -1,0 +1,13 @@
+CREATE DATABASE emp;
+
+USE emp;
+
+CREATE TABLE emp_detail (
+    eid INT,
+    ename VARCHAR(50),
+    eage INT
+);
+
+INSERT INTO emp_detail VALUES
+(1, 'Suresh', 21),
+(2, 'Kumar', 22);

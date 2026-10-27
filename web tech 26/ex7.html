@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form Validation</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        .form-box {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 10px;
+            box-sizing: border-box;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+
+        .success {
+            color: green;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-box">
+
+    <h2>Login Form Validation</h2>
+
+    <form name="loginForm" novalidate>
+
+        Email:
+
+        <input type="email"
+               name="email"
+               ng-model="email"
+               required>
+
+        <span class="error"
+              ng-show="loginForm.email.$touched &&
+                       loginForm.email.$error.required">
+            * Email is required
+        </span>
+
+        <span class="error"
+              ng-show="loginForm.email.$error.email">
+            * Invalid email format
+        </span>
+
+
+        <br><br>
+
+        Password:
+
+        <input type="password"
+               name="password"
+               ng-model="password"
+               required
+               ng-minlength="6">
+
+        <span class="error"
+              ng-show="loginForm.password.$touched &&
+                       loginForm.password.$error.required">
+            * Password is required
+        </span>
+
+        <span class="error"
+              ng-show="loginForm.password.$error.minlength">
+            * Minimum 6 characters required
+        </span>
+
+
+        <p class="success"
+           ng-show="loginForm.$valid">
+            All fields look good!
+        </p>
+
+        <button type="submit"
+                ng-disabled="loginForm.$invalid">
+            Login
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
